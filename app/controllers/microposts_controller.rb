@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
       flash[:success] = 'メッセージを投稿しました'
       redirect_to root_url
     else
-      @micropost = current_user.micoposts.order(id: :desc).page(params[:page])
+      @micropost = current_user.feed_micoposts.order(id: :desc).page(params[:page])
       flash.now = 'メッセージの投稿に失敗しました'
       render 'toppages/index'
     end
